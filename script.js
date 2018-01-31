@@ -1,4 +1,3 @@
-var ldclient = LDClient.initialize('5a710e426040390af06d0b14', {"key": "test@example.com"});
 ldclient.on('ready', function() {
   var showFeature = ldclient.variation("know-todays-date", false);
   if (showFeature) {
