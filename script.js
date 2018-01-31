@@ -1,4 +1,3 @@
-
 ldclient.on('ready', function() {
   let d = new Date();
   var showFeature = ldclient.variation("know-todays-date", false);
