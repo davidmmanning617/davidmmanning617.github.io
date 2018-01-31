@@ -1,4 +1,4 @@
-Step 1: 
+Step 1: feel like at least I have this part right. Maybe?
 ```
 <head>
     <meta charset="UTF-8">
