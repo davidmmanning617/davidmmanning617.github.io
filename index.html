@@ -3,7 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>LaunchDarkly tutorial</title>
+    <script src="https://app.launchdarkly.com/snippet/ldclient.min.js">
   </head>
   <body>
+    <script>
+  var user = {
+    firstName: 'Bob',
+    lastName: 'Loblaw',
+    key: 'bob@example.com',
+    custom: {
+      groups: 'beta_testers'
+    }
+  };
+
+  var div = document.createElement('div');
+  document.body.appendChild(div);
+  
+  div.appendChild(document.createTextNode('Initializing...'));
+
+  var ldclient = LDClient.initialize('5a710e426040390af06d0b14', user);
+      
+  function render() {
+    var shouldShow = ldclient.variation('profile-description', false);
+    var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
+    div.replaceChild(document.createTextNode(label), div.firstChild);
+  }
+  
+  ldclient.on('ready', render);
+  ldclient.on('change', render);
+    </script>
   </body>
 </html>
