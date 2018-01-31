@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://app.launchdarkly.com/snippet/ldclient.min.js">
     <meta charset="utf-8">
     <title>LaunchDarkly tutorial</title>
-    <script src="https://app.launchdarkly.com/snippet/ldclient.min.js">
   </head>
   <body>
-    <script>
-  var user = {
-    firstName: 'Bob',
-    lastName: 'Loblaw',
-    key: 'bob@example.com',
-    custom: {
-      groups: 'beta_testers'
-    }
-  };
+      <script>
+        var user = {
+          firstName: 'Bob',
+          lastName: 'Loblaw',
+          key: 'bob@example.com',
+          custom: {
+            groups: 'beta_testers'
+          }
+        };
 
-  var div = document.createElement('div');
-  document.body.appendChild(div);
-  
-  div.appendChild(document.createTextNode('Initializing...'));
+        var div = document.createElement('div');
+        document.body.appendChild(div);
 
-  var ldclient = LDClient.initialize('5a710e426040390af06d0b14', user);
-      
-  function render() {
-    var shouldShow = ldclient.variation('profile-description', false);
-    var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
-    div.replaceChild(document.createTextNode(label), div.firstChild);
-  }
-  
-  ldclient.on('ready', render);
-  ldclient.on('change', render);
-      <form>
-        <input type="text" id="imagename" value="" />
-        <input type="button" id="btn" value="GO" />
-      </form>
-    <script type="text/javascript">
-        document.getElementById('btn').onclick = function() {
-            var val = document.getElementById('imagename').value,
-                src = 'http://webpage.com/images/' + val +'.png',
-                img = document.createElement('img');
+        div.appendChild(document.createTextNode('Initializing...'));
 
-            img.src = src;
-            document.body.appendChild(img);
+        var ldclient = LDClient.initialize('5a710e426040390af06d0b14', user);
+
+        function render() {
+          var shouldShow = ldclient.variation('profile-description', false);
+          var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
+          div.replaceChild(document.createTextNode(label), div.firstChild);
         }
-    </script>
+
+        ldclient.on('ready', render);
+        ldclient.on('change', render);
+      </script>
   </body>
 </html>
