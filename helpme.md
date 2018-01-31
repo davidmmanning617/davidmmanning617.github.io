@@ -16,7 +16,7 @@ var ldclient = LDClient.initialize('5a710e426040390af06d0b14', {"key": "test@exa
 ```
 
 Step 3:
-Can't seem to figureout how to incorporate the flag logic into the js I have.
+Can't seem to figureout how to incorporate the flag logic into the js I have. I tried a few different things, but nothing seemed to work.
 ```
 let d = new Date();
 document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
