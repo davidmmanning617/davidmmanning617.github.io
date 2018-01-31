@@ -10,13 +10,13 @@
 
 <body>
 <script>
+let d = new Date();
+  var ldclient = LDClient.initialize('5a710e426040390af06d0b14', {"key": "test@example.com"});
 ldclient.on('ready', function() {
   var showFeature = ldclient.variation("know-todays-date", false);
   if (showFeature) {
-      let d = new Date();
       document.body.innerHTML = "<h1>Not today</h1>"
   } else {
-      let d = new Date();
       document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
   }
 });
