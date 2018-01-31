@@ -8,5 +8,3 @@ ldclient.on('ready', function() {
     document.body.innerHTML = "<h1>Not today, friend."</h1>"
   }
 });
-
-
