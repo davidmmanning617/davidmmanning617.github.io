@@ -1,36 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>LaunchDarkly tutorial</title>
-    <script src="https://app.launchdarkly.com/snippet/ldclient.min.js">
-  </head>
-  <body>
-      <script>
-        var user = {
-          firstName: 'Bob',
-          lastName: 'Loblaw',
-          key: 'bob@example.com',
-          custom: {
-            groups: 'beta_testers'
-          }
-        };
+<html lang="en-US">
 
-        var div = document.createElement('div');
-        document.body.appendChild(div);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today's Date</title>
+</head>
 
-        div.appendChild(document.createTextNode('Initializing...'));
+<body>
 
-        var ldclient = LDClient.initialize('5a710e426040390af06d0b14', user);
+  <script>
+      let d = new Date();
+      document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+  </script>
 
-        function render() {
-          var shouldShow = ldclient.variation('profile-description', false);
-          var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
-          div.replaceChild(document.createTextNode(label), div.firstChild);
-        }
+</body>
 
-        ldclient.on('ready', render);
-        ldclient.on('change', render);
-      </script>
-  </body>
 </html>
